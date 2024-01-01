@@ -1,0 +1,39 @@
+name: MyContinousIntegrationCheck
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v8
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Run tests
+        run: |
+          # Extract the exercise name from the branch name
+          EXERCISE_NAME=$(echo ${{ github.head_ref }} | tr -d '[:space:]')
+
+          # If the branch name corresponds to an exercise folder, run tests
+          if [ -d "csharp/$EXERCISE_NAME" ]; then
+            cd "csharp/$EXERCISE_NAME"
+
+            # Check if there is a test project file
+            if test -f *.csproj; then
+              dotnet test
+            else
+              echo "No test project found for $EXERCISE_NAME."
+            fi
+          else
+            echo "No tests to run for the current branch."
+          fi
+
+#  cd:
