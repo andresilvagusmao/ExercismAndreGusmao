@@ -26,8 +26,14 @@ git checkout -b "name-of-next-exercism-exercise"
 git commit -m "name-of-folder-of-exercise"
 
 4- Create a Pull Request from that branch to the main branch.
+![PR](https://github.com/andresilvagusmao/ExercismAndreGusmao/assets/46381013/57a7566a-bf22-43cb-a58d-cc7f6c2db1b3)
+
 
 5- If GitHub Actions tests are passed delete your exercise branch after that.
+![checks](https://github.com/andresilvagusmao/ExercismAndreGusmao/assets/46381013/21095670-2cbd-4dad-89e2-2b69c7d50f70)
+
+![action](https://github.com/andresilvagusmao/ExercismAndreGusmao/assets/46381013/26befdff-4165-4f7e-bf8c-3edc35114d42)
+
 # Setting up
 1- Fork this repo:
 
